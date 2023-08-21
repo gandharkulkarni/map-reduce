@@ -1,0 +1,14 @@
+syntax = "proto3";
+option go_package = "./storageNode_handler";
+
+message beat{
+    string machineName = 1;
+    string port = 2;
+    bool beat = 3;
+    string diskSpace = 4;
+}
+
+message response{
+    string message = 1;
+}
+

@@ -1,0 +1,27 @@
+syntax = "proto3";
+option go_package = "./client_handler";
+
+message clientMsg{
+    bytes data = 1;
+    string filename = 2;
+    string action = 3;
+    string checksum = 4;
+    string status = 5;
+    int64 filesize = 6;
+    int64 chunksize = 7;
+    map<string, string> chunkDetails = 8;
+    map<string, replicaNodes> replicaDetails = 9;
+    message replicaNodes{
+        repeated string replicaList = 1;
+    }
+    repeated string fileList = 10;
+    map<string, string> diskSpaceMap = 11;
+    bool isTextFile = 12;
+    repeated string activeNodes = 13;
+    int64 requiredNoOfChunks = 14;
+    int64 reducerCount = 15;
+    repeated string reducerList = 16;
+    repeated string nonReducerList = 17;
+    int64 activeNodesCount = 18;
+    string reducedOutputMachineName = 19;
+}
